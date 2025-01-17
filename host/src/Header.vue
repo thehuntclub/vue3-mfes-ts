@@ -4,7 +4,7 @@
             <v-app-bar-nav-icon @click="toggleNav"></v-app-bar-nav-icon>
         </template>
     
-        <v-app-bar-title>My Prepare And Reaction App</v-app-bar-title>
+        <v-app-bar-title>My Prepare And Reaction App {{ store.currentCount }}</v-app-bar-title>
     </v-app-bar>
     <v-navigation-drawer v-if="showNav" class="h-75">
     <!-- <v-list-item title="My Application" subtitle="Vuetify"></v-list-item>
@@ -28,6 +28,11 @@
     </v-navigation-drawer>
 </template>
 
+<script lang="ts" setup>
+  import { useCounterStore } from './store'
+  const store = useCounterStore()
+</script>
+
 <script lang="ts">
     import { defineComponent } from 'vue';
     import { RouterLink } from 'vue-router';    
@@ -47,4 +52,6 @@
             },
         }
     })
+    
+ 
 </script>
